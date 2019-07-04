@@ -1,10 +1,8 @@
-spring:
-  application:
-    name: xincan-security-core
+
 
 # 服务端口配置
 server:
-  port: 9000
+  port: 9500
   # 下面是配置undertow作为服务器的参数
   undertow:
     # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
@@ -17,3 +15,34 @@ server:
     buffer-size: 1024
     # 是否分配的直接内存
     direct-buffers: true
+
+
+spring:
+  application:
+    name: xincan-security-demo
+
+  session:
+    store-type: none
+
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    # mysql7连接方式
+    url: jdbc:mysql://localhost:3306/xincan-security?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: xincan-hikari-cp
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+  # 数据访问配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

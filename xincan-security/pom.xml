@@ -24,10 +24,10 @@
         <platform-bom.version>Cairo-SR7</platform-bom.version>
 
         <!-- spring-boot版本配置 -->
-        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
 
         <!-- spring-cloud版本配置 -->
-        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 
         <!-- 阿里巴巴json处理版本配置 -->
         <com.alibaba.fastjson.version>1.2.49</com.alibaba.fastjson.version>

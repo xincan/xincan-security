@@ -21,6 +21,24 @@
 
     <dependencies>
 
+        <!-- 引入springboot响应式编程 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-reactor-netty</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 引入undertow服务器替代tomcat服务器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
         <!-- 引入测试工具包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
