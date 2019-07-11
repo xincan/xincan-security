@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("core")
+@RequestMapping("browser")
 public class InfoController {
 
     @Value("${spring.application.name}")

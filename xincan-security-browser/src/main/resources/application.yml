@@ -1,8 +1,58 @@
 
+# 服务端口配置
 server:
   port: 9100
+  # 下面是配置undertow作为服务器的参数
+#  undertow:
+#    # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
+#    io-threads: 8
+#    # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
+#    # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
+#    worker-threads: 64
+#    # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理
+#    # 每块buffer的空间大小,越小的空间被利用越充分
+#    buffer-size: 1024
+#    # 是否分配的直接内存
+#    direct-buffers: true
 
 spring:
   application:
     name: xincan-security-browser
+  session:
+    store-type: none
+
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    # mysql7连接方式
+    url: jdbc:mysql://localhost:3306/xincan-security?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: xincan-hikari-cp
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+
+  redis:
+    database: 10
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    timeout: 10000ms
 

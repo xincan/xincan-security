@@ -27,6 +27,12 @@
             <artifactId>xincan-security-core</artifactId>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-undertow</artifactId>-->
+<!--        </dependency>-->
+
+
         <!-- 引入测试工具包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
