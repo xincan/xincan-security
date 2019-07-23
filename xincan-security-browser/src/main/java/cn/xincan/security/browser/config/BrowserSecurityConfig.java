@@ -57,10 +57,10 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         // http.httpBasic()
         // 表单登录
         http.formLogin()
-            .loginPage("/browser-login.html")
+            .loginPage("/authentication/require")
             .and()
             .authorizeRequests()
-                .antMatchers("/browser-login.html").permitAll()
+            .antMatchers("/authentication/require").permitAll()
             .anyRequest()
             .authenticated();// 任何请求都需要认证
     }
