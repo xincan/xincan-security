@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -56,9 +57,21 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         // http.httpBasic()
         // 表单登录
         http.formLogin()
+            .loginPage("/browser-login.html")
             .and()
             .authorizeRequests()
+                .antMatchers("/browser-login.html").permitAll()
             .anyRequest()
             .authenticated();// 任何请求都需要认证
+    }
+
+    /**
+     * 过滤静态资源，让其访问
+     * @param web
+     * @throws Exception
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/assets/**");
     }
 }

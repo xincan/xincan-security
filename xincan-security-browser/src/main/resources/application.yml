@@ -33,7 +33,7 @@ spring:
       idle-timeout: 180000
       maximum-pool-size: 10
       auto-commit: true
-      pool-name: xincan-hikari-cp
+      pool-name: xincan-hikari-browser
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
