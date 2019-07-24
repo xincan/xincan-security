@@ -3,6 +3,8 @@ package cn.xincan.security.browser.controller;
 import cn.xincan.security.browser.support.ResultCode;
 import cn.xincan.security.browser.support.ResultObject;
 import cn.xincan.security.browser.support.ResultResponse;
+
+import cn.xincan.security.core.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,6 +47,15 @@ public class BrowserSecurityController {
     @Autowired
     private RedirectStrategy redirectStrategy;
 
+
+    /**
+     * @description: 注入安全配置对象实例化
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:32:13
+     */
+    @Autowired
+    private SecurityProperties securityProperties;
+
     /**
      * @description: 需要身份认证时，进入此方法
      * @method: requireAuthention
@@ -63,7 +74,7 @@ public class BrowserSecurityController {
             String targetUrl = savedRequest.getRedirectUrl();
             log.info("引发跳转的请求是：{}", targetUrl);
             if(StringUtils.endsWithIgnoreCase(targetUrl, ".html")){
-                this.redirectStrategy.sendRedirect(request, response, "");
+                this.redirectStrategy.sendRedirect(request, response, this.securityProperties.getBrowser().getLoginPage());
             }
         }
         return ResultResponse.error(ResultCode.UNAUTHORIZED, "访问的服务需要身份认证请引导用户到登录页", null);

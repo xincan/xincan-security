@@ -21,6 +21,13 @@
 
     <dependencies>
 
+        <!-- 引用配置文件工具包 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- 引入测试工具包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -111,8 +118,8 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
+
     </build>
 
 </project>

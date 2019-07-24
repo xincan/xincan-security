@@ -1,5 +1,6 @@
 package cn.xincan.security.browser.config;
 
+import cn.xincan.security.core.properties.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -16,6 +17,12 @@ import org.springframework.security.web.savedrequest.RequestCache;
  */
 @Configuration
 public class BrowserConfig  {
+
+
+    @Bean
+    public SecurityProperties securityProperties(){
+        return new SecurityProperties();
+    }
 
     /**
      * @description 配置当前请求缓存中的路径处理类，用于获取之前session中的请求路径
