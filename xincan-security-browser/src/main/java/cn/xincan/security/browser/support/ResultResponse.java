@@ -2,11 +2,11 @@ package cn.xincan.security.browser.support;
 
 
 /**
- * Copyright (C), 2018,
- * FileName: ResultResponse
- * Author:   Xincan Jiang
- * Date:     2018-12-19 16:34:00
- * Description: 将结果转换为封装对象实体类
+ * @description: 结果响应处理类
+ * @className: IUserMapper
+ * @date: 2019-07-23 18:50:22
+ * @author: Xincan Jiang
+ * @version: 1.0
  */
 public class ResultResponse {
 
@@ -15,12 +15,15 @@ public class ResultResponse {
     private final static String FAIL_MSG = "请求失败";
 
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
      * 针对于返回业务处理之后，无需通知前端具体处理信息，走系统默认的提示信息
      *
-     * @param <T> 响应数据类型
-     * @return ResultObject<T>
+     * @method: success
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:44:04
+     * @param: []
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success() {
         return new ResultObject<T>()
@@ -29,13 +32,15 @@ public class ResultResponse {
     }
 
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
      * 针对于返回业务处理之后，需要向前端反馈后台处理的数据，将其返回
      *
-     * @param data 响应数据
-     * @param <T> 响应数据类型
-     * @return ResultObject<T>
+     * @method: success
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:44:04
+     * @param: data: 响应数据
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success(T data) {
         return new ResultObject<T>()
@@ -46,14 +51,15 @@ public class ResultResponse {
     }
 
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
      * 针对于返回业务处理之后，需要向前端反馈后台处理的数据，并且将处理结果描述提供给前端
      *
-     * @param message 响应描述
-     * @param data 响应数据
-     * @param <T> 响应数据类型
-     * @return ResultObject<T>
+     * @method: success
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:44:04
+     * @param: [message: 响应描述, data: 响应数据]
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success(String message, T data) {
         return new ResultObject<T>()
@@ -64,34 +70,32 @@ public class ResultResponse {
     }
 
     /**
-     * 返回分页数据信息
-     *
-     *  token快要过期提醒
-     *
-     * @param msg       响应结果信息
-     * @param data      查询分页数据
-     * @param <T>       响应数据类型
-     * @return
+     * @description: 返回分页数据信息
+     * @method: success
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:44:04
+     * @param: [code: 结果状态码, message: 响应描述, data: 响应数据]
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
-    @SuppressWarnings("unchecked")
-    public static <T> ResultObject<T> success(ResultCode code,String msg, T data){
+    public static <T> ResultObject<T> success(ResultCode code, String message, T data){
         return new ResultObject<T>()
                 .setCode(code)
-                .setMsg(msg)
+                .setMsg(message)
                 .setCount(0)
                 .setData(data);
     }
 
 
-    /*****************************************************************************/
-
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
      * 针对于系统业务处理失败之后，系统默认返回失败处理信息
      *
-     * @param <T> 响应数据类型
-     * @return ResultObject<T>
+     * @method: error
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:47:32
+     * @param: []
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error() {
         return new ResultObject<T>()
@@ -102,13 +106,15 @@ public class ResultResponse {
     }
 
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
      * 针对于系统业务处理失败之后，系统默返回自定义失败处理信息
      *
-     * @param message 响应描述
-     * @param <T> 响应数据类型
-     * @return ResultObject<T>
+     * @method: error
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:47:32
+     * @param: message: 响应描述
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error(String message) {
         return new ResultObject<T>()
@@ -119,13 +125,15 @@ public class ResultResponse {
     }
 
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
      * 针对于系统业务处理失败之后，系统默返回自定义失败处理信息并返回传入修改的信息
      *
-     * @param message 响应描述
-     * @param <T> 响应数据类型
-     * @return ResultObject<T>
+     * @method: error
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:47:32
+     * @param: [message: 响应描述, data: 响应数据]
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error(String message, T data) {
         return new ResultObject<T>()
@@ -136,13 +144,15 @@ public class ResultResponse {
     }
 
     /**
-     * 返回处理结果
+     * @description: 返回处理结果
      *
-     * @Description token过期传入code,或其他的错误传入code值
+     * 针对于系统业务处理失败之后，系统默返回自定义失败处理信息并返回传入修改的信息
      *
-     * @param code 响应结果编码, message 响应结果信息, T 响应结果数据
-     * @param <T> 响应数据类型
-     * @Return ResultObject<T>
+     * @method: error
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:47:32
+     * @param: [code: 结果状态码, message: 响应描述, data: 响应数据]
+     * @return: cn.xincan.security.browser.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error(ResultCode code, String message, T data) {
         return new ResultObject<T>()

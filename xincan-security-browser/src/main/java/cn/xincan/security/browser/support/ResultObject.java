@@ -1,11 +1,11 @@
 package cn.xincan.security.browser.support;
 
 /**
- * Copyright (C), 2018,
- * FileName: ResultObject
- * Author:   Xincan Jiang
- * Date:     2018-12-19 16:32:00
- * Description: 创建返回对象实体类
+ * @description: 结果对象实体类
+ * @className: IUserMapper
+ * @date: 2019-07-23 18:50:22
+ * @author: Xincan Jiang
+ * @version: 1.0
  */
 public class ResultObject<T> {
 

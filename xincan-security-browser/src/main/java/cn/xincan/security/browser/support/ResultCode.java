@@ -1,11 +1,11 @@
 package cn.xincan.security.browser.support;
 
 /**
- * Copyright (C), 2018,
- * FileName: ResultCode
- * Author:   Xincan Jiang
- * Date:     2018-12-19 16:30:00
- * Description: 状态响应码工具类
+ * @description: 结果状态处理枚举类
+ * @className: ResultCode
+ * @date: 2019-07-23 18:50:22
+ * @author: Xincan Jiang
+ * @version: 1.0
  */
 public enum  ResultCode {
     // 成功

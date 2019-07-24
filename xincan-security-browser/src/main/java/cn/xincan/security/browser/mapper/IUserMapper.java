@@ -6,22 +6,22 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @Copyright (C), 2018
- * @ProjectName: xincan-security
- * @Package: cn.xincan.security.browser.mapper
- * @ClassName: IUserMapper
- * @Author: Xincan Jiang
- * @Description: 用户信息接口层
- * @Date: 2019/4/16 16:59
- * @Version: 1.0
+ * @description: 用户信息数据接口层
+ * @className: IUserMapper
+ * @date: 2019-07-23 18:50:22
+ * @author: Xincan Jiang
+ * @version: 1.0
  */
 @Repository
 public interface IUserMapper extends JpaRepository<User, Long> {
 
     /**
-     * 根据用户名称查询用户信息
-     * @param username
-     * @return User
+     * @description: 根据用户名称查询用户信息
+     * @method:
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:37:46
+     * @param: []null
+     * @return: cn.xincan.security.browser.entity.User
      */
     User findByUsername(String username);
 

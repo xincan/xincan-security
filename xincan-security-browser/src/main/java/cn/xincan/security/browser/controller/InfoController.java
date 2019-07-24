@@ -13,7 +13,7 @@ import java.util.Map;
  * @ClassName: InfoController
  * @Date: 2019/7/23 18:50
  * @Author Xincan Jiang
- * @Version
+ * @Version 1.0
  */
 @RestController
 @RequestMapping("browser")

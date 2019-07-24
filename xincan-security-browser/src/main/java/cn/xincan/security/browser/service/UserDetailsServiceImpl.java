@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @Copyright (C), 2018
- * @ProjectName: xincan-security
- * @Package: cn.xincan.security.browser.service
- * @ClassName: IUserMapper
- * @Author: Xincan Jiang
- * @Description: 实现SpringSecurity UserDetailsService接口，重写loadUserByUsername方法
- * @Date: 2019/4/16 16:59
- * @Version: 1.0
+ * @description: 用户信息服务实现层
+ *
+ * 重写UserDetailsService的loadUserByUsername方法，获取数据库用户信息
+ *
+ * @className: UserDetailsServiceImpl
+ * @date: 2019-07-23 18:50:22
+ * @author: Xincan Jiang
+ * @version: 1.0
  */
 @Component
 @Slf4j

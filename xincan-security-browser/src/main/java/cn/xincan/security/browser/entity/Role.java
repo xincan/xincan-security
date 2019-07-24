@@ -4,6 +4,13 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
+/**
+ * @Description: 用户对应角色实体对象
+ * @ClassName: Role
+ * @Date: 2019-07-2323 18:50:34
+ * @Author Xincan Jiang
+ * @Version 1.0
+ */
 @Entity
 @Table(name = "role")
 public class Role implements GrantedAuthority {

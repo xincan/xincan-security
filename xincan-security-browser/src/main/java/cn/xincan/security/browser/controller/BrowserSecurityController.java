@@ -29,25 +29,34 @@ import java.io.IOException;
 @RestController
 public class BrowserSecurityController {
 
+    /**
+     * @description: 注入请求缓存对象实例化
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:32:13
+     */
     @Autowired
     private RequestCache requestCache;
 
+    /**
+     * @description: 注入转发策略对象实例化
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:32:13
+     */
     @Autowired
     private RedirectStrategy redirectStrategy;
 
     /**
-     * @Description 需要身份认证时，进入此方法
-     * @Method requireAuthention
-     * @Author Xincan Jiang
-     * @Date 2019-07-23 1824:56:46
-     * @Param * [request 请求信息, response 转发信息]
-     * @Return ResultObject
-     * @Exception IOException
+     * @description: 需要身份认证时，进入此方法
+     * @method: requireAuthention
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:33:43
+     * @param: [request: 服务请求对象, response: 服务响应对象]
+     * @return: cn.xincan.security.browser.support.ResultObject 返回结果对象
+     * @exception: IOException
      */
     @GetMapping("/authentication/require")
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public ResultObject requireAuthention(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         // 获取缓存中访问的路径信息
         SavedRequest savedRequest = this.requestCache.getRequest(request,response);
         if(savedRequest != null){

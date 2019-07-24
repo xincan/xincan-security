@@ -8,6 +8,13 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @Description: 用户实体对象
+ * @ClassName: Role
+ * @Date: 2019-07-2323 18:50:34
+ * @Author Xincan Jiang
+ * @Version 1.0
+ */
 @Entity
 @Table(name = "user")
 public class User implements UserDetails, Serializable {
