@@ -1,5 +1,6 @@
 package cn.xincan.security.browser.config;
 
+import cn.xincan.security.browser.authentication.BrowserAuthenticationFailureHandler;
 import cn.xincan.security.browser.authentication.BrowserAuthenticationSuccessHandler;
 import cn.xincan.security.browser.service.UserDetailsServiceImpl;
 import cn.xincan.security.core.properties.SecurityProperties;
@@ -33,9 +34,9 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
     /**
-     * @description: 注入统一配置类
+     * @description: 注入自定义安全配置对象实例化
      * @author: Xincan Jiang
-     * @date: 2019-07-24 10:25:26
+     * @date: 2019-07-24 10:32:13
      */
     @Autowired
     private SecurityProperties securityProperties;
@@ -47,6 +48,14 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     private BrowserAuthenticationSuccessHandler browserAuthenticationSuccessHandler;
+
+    /**
+     * @description: 注入自定义实现登录失败处理器
+     * @author: Xincan Jiang
+     * @date: 2019-07-24 10:25:26
+     */
+    @Autowired
+    private BrowserAuthenticationFailureHandler browserAuthenticationFailureHandler;
 
     /**
      * @description: 配置密码加密方式
@@ -93,9 +102,10 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
             .loginPage("/authentication/require")
             .loginProcessingUrl("/authentication/form")
             .successHandler(this.browserAuthenticationSuccessHandler)
+            .failureHandler(this.browserAuthenticationFailureHandler)
             .and()
             .authorizeRequests()
-            .antMatchers("/authentication/require", this.securityProperties.getBrowser().getLoginPage()).permitAll()
+            .antMatchers("/error", "/authentication/require", this.securityProperties.getBrowser().getLoginPage()).permitAll()
             .anyRequest()
             .authenticated()// 任何请求都需要认证
             .and()
@@ -113,8 +123,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
      * @exception:
      */
     @Override
-    public void configure(WebSecurity web) {
-
+    public void configure(WebSecurity web) throws Exception{
         web.ignoring().antMatchers("/assets/**","/favicon.ico");
     }
 }

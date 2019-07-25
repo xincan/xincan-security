@@ -5,9 +5,9 @@ import cn.xincan.security.core.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
@@ -26,9 +26,8 @@ import java.io.IOException;
  * @version: 1.0
  */
 @Slf4j
-@Component("browserAuthenticationSuccessHandler")
-public class BrowserAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
-
+@Component("browserAuthenticationFailureHandler")
+public class BrowserAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler{
     /**
      * @description: 注入对象转换器
      * @author: Xincan Jiang
@@ -47,24 +46,25 @@ public class BrowserAuthenticationSuccessHandler extends SimpleUrlAuthentication
 
     /**
      * @description: 登录成功被调用
-     * @method: onAuthenticationSuccess
+     * @method: onAuthenticationFailure
      * @author: Xincan Jiang
      * @date: 2019-07-24 18:51:02
-     * @param: [request 请求, response 响应, authentication 封装认证信息（ip，session等等）]
+     * @param: [request 请求, response 响应, exception 登录错误信息]
      * @return: void
      * @exception: IOException, ServletException
      */
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-                                        Authentication authentication) throws IOException, ServletException {
-        log.info("登录成功");
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                                        AuthenticationException exception) throws IOException, ServletException {
+        log.info("登录失败");
+
         // 如果用户配置了登录返回类型是JSON，则返回JSON，否则走父类默认返回跳转界面
         if(LoginType.JSON.equals(this.securityProperties.getBrowser().getLoginType())){
+            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(this.objectMapper.writeValueAsString(authentication));
+            response.getWriter().write(this.objectMapper.writeValueAsString(exception));
         }else {
-            super.onAuthenticationSuccess(request, response, authentication);
+            super.onAuthenticationFailure(request, response, exception);
         }
-
     }
 }

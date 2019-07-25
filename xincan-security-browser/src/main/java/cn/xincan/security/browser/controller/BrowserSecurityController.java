@@ -49,7 +49,7 @@ public class BrowserSecurityController {
 
 
     /**
-     * @description: 注入安全配置对象实例化
+     * @description: 注入自定义安全配置对象实例化
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:32:13
      */
