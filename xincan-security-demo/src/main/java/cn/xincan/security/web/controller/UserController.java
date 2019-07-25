@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @description: TODO
+ * @description: 用户信息处理控制层
  * @className: UserController
  * @date: 2019/7/24 17:26
  * @author: Xincan Jiang

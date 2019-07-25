@@ -1,4 +1,5 @@
 
+
 # 服务端口配置
 server:
   port: 8060
@@ -18,6 +19,7 @@ server:
 spring:
   application:
     name: xincan-security-browser
+
   session:
     store-type: none
 
@@ -61,7 +63,7 @@ spring:
         min-idle: 0
     timeout: 10000ms
 
-#xincan:
-#  security:
-#    browser:
-#      loginPage: /demo-login.html
+xincan:
+  security:
+    browser:
+      loginPage: /demo-login.html
