@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>xincan-security</artifactId>
+        <groupId>cn.xincan.security</groupId>
+        <version>1.0.0</version>
+        <relativePath>../xincan-security</relativePath>
+    </parent>
+
+
+    <groupId>cn.xincan.security</groupId>
+    <artifactId>xincan-security-demo</artifactId>
+    <name>xincan-security-demo</name>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <description>xincan-security-demo 统一鉴权演示demo</description>
+    <url>http://www.github.com/xincan/xincan-security</url>
+
+
+    <dependencies>
+
+        <!-- 引入浏览器端工具包 -->
+        <dependency>
+            <groupId>cn.xincan.security</groupId>
+            <artifactId>xincan-security-browser</artifactId>
+            <version>${cn.xincan.security.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 引入undertow服务器工具包 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

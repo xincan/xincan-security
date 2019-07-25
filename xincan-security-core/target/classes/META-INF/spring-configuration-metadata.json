@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "cn.xincan.security.core.properties.SecurityProperties",
+      "name": "xincan.security",
+      "type": "cn.xincan.security.core.properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "cn.xincan.security.core.properties.SecurityProperties",
+      "name": "xincan.security.browser",
+      "type": "cn.xincan.security.core.properties.BrowserProperties"
+    }
+  ]
+}

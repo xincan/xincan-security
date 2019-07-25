@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>xincan-security</artifactId>
+        <groupId>cn.xincan.security</groupId>
+        <version>1.0.0</version>
+        <relativePath>../xincan-security</relativePath>
+    </parent>
+
+    <groupId>cn.xincan.security</groupId>
+    <artifactId>xincan-security-browser</artifactId>
+    <name>xincan-security-browser</name>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <description>xincan-security-browser 统一鉴权浏览器端处理</description>
+    <url>http://www.github.com/xincan/xincan-security</url>
+
+    <dependencies>
+
+        <!-- 引入统一鉴权核心工具包 -->
+        <dependency>
+            <groupId>cn.xincan.security</groupId>
+            <artifactId>xincan-security-core</artifactId>
+            <version>${cn.xincan.security.version}</version>
+        </dependency>
+
+        <!-- 引入spring session集群下的session管理工具包 -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session</artifactId>
+        </dependency>
+
+        <!-- 引入日志处理依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
