@@ -72,6 +72,6 @@ xincan:
       image:
         expireIn: 60 # 超时（单位秒）
         length: 6     # 验证码长度设定
-#        height: 30
-        width: 100
+#        height: 30  # 定义图形验证码的高度
+        width: 100   # 定义图形验证码的宽度
         url: /user # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
