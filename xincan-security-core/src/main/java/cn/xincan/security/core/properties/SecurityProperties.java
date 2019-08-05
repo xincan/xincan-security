@@ -13,7 +13,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties( prefix = "xincan.security")
 public class SecurityProperties {
 
-    BrowserProperties browser = new BrowserProperties();
+    // 客户端登录参数配置
+    private BrowserProperties browser = new BrowserProperties();
+
+    // 验证码参数配置
+    private ValidateCodeProperties code = new ValidateCodeProperties();
 
     public void setBrowser(BrowserProperties browser) {
         this.browser = browser;
@@ -21,5 +25,13 @@ public class SecurityProperties {
 
     public BrowserProperties getBrowser() {
         return browser;
+    }
+
+    public ValidateCodeProperties getCode() {
+        return code;
+    }
+
+    public void setCode(ValidateCodeProperties code) {
+        this.code = code;
     }
 }

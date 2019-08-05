@@ -99,8 +99,14 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        // 自定义图形验证码操作
+        // 配置自定义错误异常处理
+        // 配置自定义参数
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
         validateCodeFilter.setAuthenticationFailureHandler(this.browserAuthenticationFailureHandler);
+        validateCodeFilter.setSecurityProperties(this.securityProperties);
+        validateCodeFilter.afterPropertiesSet();
+
         // 表单登录
         http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
             .formLogin()

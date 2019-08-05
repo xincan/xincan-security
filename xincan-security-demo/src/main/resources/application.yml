@@ -63,8 +63,15 @@ spring:
         min-idle: 0
     timeout: 10000ms
 
-#xincan:
-#  security:
-#    browser:
-#      loginPage: /demo-login.html
-#      loginType: REDIRECT
+xincan:
+  security:
+    browser:
+      loginPage: /demo-login.html #采用自己定义的登录页面，如果不配置则默认browser-login.html
+#      loginType: REDIRECT # 返回的是否是界面还是json数据（REDIRECT， JSON）
+    code:
+      image:
+        expireIn: 60 # 超时（单位秒）
+        length: 6     # 验证码长度设定
+#        height: 30
+        width: 100
+        url: /user # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
