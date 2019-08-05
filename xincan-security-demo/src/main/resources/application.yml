@@ -63,8 +63,8 @@ spring:
         min-idle: 0
     timeout: 10000ms
 
-xincan:
-  security:
-    browser:
-      loginPage: /demo-login.html
-      loginType: REDIRECT
+#xincan:
+#  security:
+#    browser:
+#      loginPage: /demo-login.html
+#      loginType: REDIRECT

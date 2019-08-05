@@ -1,8 +1,10 @@
 package cn.xincan.security.browser.authentication;
 
+import cn.xincan.security.browser.support.ResultResponse;
 import cn.xincan.security.core.enums.LoginType;
 import cn.xincan.security.core.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -62,7 +64,8 @@ public class BrowserAuthenticationFailureHandler extends SimpleUrlAuthentication
         if(LoginType.JSON.equals(this.securityProperties.getBrowser().getLoginType())){
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(this.objectMapper.writeValueAsString(exception));
+            String a = !StringUtils.isEmpty(request.getParameter("imageCode")) ? request.getParameter("imageCode") : "";
+            response.getWriter().write(this.objectMapper.writeValueAsString(ResultResponse.error(exception.getMessage(), a)));
         }else {
             super.onAuthenticationFailure(request, response, exception);
         }

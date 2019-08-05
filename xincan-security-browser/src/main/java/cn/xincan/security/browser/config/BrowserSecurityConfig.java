@@ -4,6 +4,7 @@ import cn.xincan.security.browser.authentication.BrowserAuthenticationFailureHan
 import cn.xincan.security.browser.authentication.BrowserAuthenticationSuccessHandler;
 import cn.xincan.security.browser.service.UserDetailsServiceImpl;
 import cn.xincan.security.core.properties.SecurityProperties;
+import cn.xincan.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 /**
@@ -97,15 +99,23 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setAuthenticationFailureHandler(this.browserAuthenticationFailureHandler);
         // 表单登录
-        http.formLogin()
+        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+            .formLogin()
             .loginPage("/authentication/require")
             .loginProcessingUrl("/authentication/form")
             .successHandler(this.browserAuthenticationSuccessHandler)
             .failureHandler(this.browserAuthenticationFailureHandler)
             .and()
             .authorizeRequests()
-            .antMatchers("/error", "/authentication/require", this.securityProperties.getBrowser().getLoginPage()).permitAll()
+            .antMatchers(
+                    "/error",
+                    "/authentication/require",
+                    this.securityProperties.getBrowser().getLoginPage(),
+                    "/code/image"
+            ).permitAll()
             .anyRequest()
             .authenticated()// 任何请求都需要认证
             .and()
