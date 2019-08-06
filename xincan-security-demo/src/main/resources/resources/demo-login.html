@@ -15,6 +15,35 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+        input[name="remember-me"]{
+            width: 20px;
+            height: auto;
+            line-height: 42px;
+            margin-top: 25px;
+            padding: unset;
+            background: unset;
+            *background-color: unset;
+            background: none;
+            -moz-border-radius: unset;
+            -webkit-border-radius: unset;
+            border-radius: unset;
+            border: none;
+            border: none;
+            -moz-box-shadow: unset;
+            -webkit-box-shadow: unset;
+            box-shadow: unset;
+            font-family: pt sans,Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            color: #fff;
+            text-shadow: unset;
+            -o-transition: unset;
+            -moz-transition: unset;
+            -webkit-transition: unset;
+            -ms-transition: unset;
+        }
+    </style>
 </head>
 <body oncontextmenu="return false">
 <div class="page-container">
@@ -27,9 +56,13 @@
             <input type="password" name="password" class="password" value="123456" placeholder="Password" oncontextmenu="return false" onpaste="return false" />
         </div>
         <div>
-            <input type="text" name="imageCode" style="    width: 187px;"/>
-            <!-- /code/image?widht=200&height=300 自定义图形验证码宽高 -->
+            <input type="text" name="imageCode" style="width: 187px;"/>
+            <!-- /code/image?width=200&height=300&length=6&expireIn=60 自定义图形验证码宽高 -->
             <img src="/code/image" style="height: 42px; width: 77px; position: relative; top: 16px; border-radius: 3px;" />
+        </div>
+        <div style="float: left">
+            <!-- 记住我功能remember-me固定写法 -->
+            <input type="checkbox" name="remember-me" value="true" /><span style="position: relative; top: -2px;">记住我</span>
         </div>
         <button id="submit" type="submit">Sign in</button>
     </form>

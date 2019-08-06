@@ -91,6 +91,10 @@
                     <input type="text" name="imageCode" style="    width: 187px;"/>
                     <!-- /code/image?widht=200&height=300 自定义图形验证码宽高 -->
                     <img src="/code/image" style="height: 46px;width: 70px;position: relative;top: 18px;" />
+                    <label style="display: inline-block; width: 270px; text-align: left; padding: 10px 0px 0px 0px;">
+                        <!-- 记住我功能remember-me固定写法 -->
+                        <input type="checkbox" name="remember-me" value="true" /><span>记住我</span>
+                    </label>
                     <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
                 </form>
                 <div class="cont_form_sign_up"> <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>

@@ -17,6 +17,9 @@ public class BrowserProperties {
     // 如果用户没有指定跳转返回类型，默认返回JSON数据
     private LoginType loginType = LoginType.JSON;
 
+    // 记住我默认一周后过期(单位是秒)
+    private int rememberMeSeconds = 3600 * 24 * 7;
+
     public String getLoginPage() {
         return loginPage;
     }
@@ -33,5 +36,11 @@ public class BrowserProperties {
         this.loginType = loginType;
     }
 
+    public int getRememberMeSeconds() {
+        return rememberMeSeconds;
+    }
 
+    public void setRememberMeSeconds(int rememberMeSeconds) {
+        this.rememberMeSeconds = rememberMeSeconds;
+    }
 }
