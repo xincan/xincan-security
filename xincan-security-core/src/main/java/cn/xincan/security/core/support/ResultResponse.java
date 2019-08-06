@@ -1,4 +1,4 @@
-package cn.xincan.security.browser.support;
+package cn.xincan.security.core.support;
 
 
 /**
@@ -23,7 +23,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:44:04
      * @param: []
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success() {
         return new ResultObject<T>()
@@ -40,7 +40,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:44:04
      * @param: data: 响应数据
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success(T data) {
         return new ResultObject<T>()
@@ -59,7 +59,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:44:04
      * @param: [message: 响应描述, data: 响应数据]
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success(String message, T data) {
         return new ResultObject<T>()
@@ -75,7 +75,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:44:04
      * @param: [code: 结果状态码, message: 响应描述, data: 响应数据]
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> success(ResultCode code, String message, T data){
         return new ResultObject<T>()
@@ -95,7 +95,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:47:32
      * @param: []
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error() {
         return new ResultObject<T>()
@@ -114,7 +114,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:47:32
      * @param: message: 响应描述
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error(String message) {
         return new ResultObject<T>()
@@ -133,7 +133,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:47:32
      * @param: [message: 响应描述, data: 响应数据]
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error(String message, T data) {
         return new ResultObject<T>()
@@ -152,7 +152,7 @@ public class ResultResponse {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:47:32
      * @param: [code: 结果状态码, message: 响应描述, data: 响应数据]
-     * @return: cn.xincan.security.browser.support.ResultObject<T>
+     * @return: cn.xincan.security.core.support.ResultObject<T>
      */
     public static <T> ResultObject<T> error(ResultCode code, String message, T data) {
         return new ResultObject<T>()

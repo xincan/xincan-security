@@ -1,4 +1,4 @@
-package cn.xincan.security.browser.support;
+package cn.xincan.security.core.support;
 
 /**
  * @description: 结果状态处理枚举类

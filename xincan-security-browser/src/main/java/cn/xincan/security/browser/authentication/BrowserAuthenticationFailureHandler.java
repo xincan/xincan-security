@@ -1,6 +1,6 @@
 package cn.xincan.security.browser.authentication;
 
-import cn.xincan.security.browser.support.ResultResponse;
+import cn.xincan.security.core.support.ResultResponse;
 import cn.xincan.security.core.enums.LoginType;
 import cn.xincan.security.core.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;

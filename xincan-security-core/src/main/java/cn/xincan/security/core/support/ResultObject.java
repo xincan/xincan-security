@@ -1,4 +1,4 @@
-package cn.xincan.security.browser.support;
+package cn.xincan.security.core.support;
 
 /**
  * @description: 结果对象实体类

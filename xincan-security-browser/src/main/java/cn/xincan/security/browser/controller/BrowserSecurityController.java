@@ -1,8 +1,8 @@
 package cn.xincan.security.browser.controller;
 
-import cn.xincan.security.browser.support.ResultCode;
-import cn.xincan.security.browser.support.ResultObject;
-import cn.xincan.security.browser.support.ResultResponse;
+import cn.xincan.security.core.support.ResultCode;
+import cn.xincan.security.core.support.ResultObject;
+import cn.xincan.security.core.support.ResultResponse;
 
 import cn.xincan.security.core.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -62,7 +62,7 @@ public class BrowserSecurityController {
      * @author: Xincan Jiang
      * @date: 2019-07-24 10:33:43
      * @param: [request: 服务请求对象, response: 服务响应对象]
-     * @return: cn.xincan.security.browser.support.ResultObject 返回结果对象
+     * @return: cn.xincan.security.core.support.ResultObject 返回结果对象
      * @exception: IOException
      */
     @GetMapping("/authentication/require")
@@ -77,7 +77,7 @@ public class BrowserSecurityController {
                 this.redirectStrategy.sendRedirect(request, response, this.securityProperties.getBrowser().getLoginPage());
             }
         }
-        return ResultResponse.error(ResultCode.UNAUTHORIZED, "访问的服务需要身份认证请引导用户到登录页", null);
+        return ResultResponse.error(ResultCode.UNAUTHORIZED, "访问的服务需要身份认证请引导用户到登录页", "");
     }
 
 
