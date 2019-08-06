@@ -1,19 +1,19 @@
 package cn.xincan.security.core.validate.code;
 
-import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @description: 添加图形验证码类
- * @className: ImageCode
+ * @description: 验证码类
+ * @className: SmsCode
  * @date: 2019/8/3 20:24
  * @author: Xincan Jiang
  * @version: 1.0
  */
-public class ImageCode {
+public class ValidateCode implements Serializable {
 
-    // 图片
-    private BufferedImage image;
+
+    private static final long serialVersionUID = -9121928684493797414L;
 
     // 图片上的随机数（存入session）
     private String code;
@@ -21,16 +21,14 @@ public class ImageCode {
     // 验证码过期时间
     private LocalDateTime expireTime;
 
-    public ImageCode(){}
+    public ValidateCode(){}
 
-    public ImageCode(BufferedImage image, String code, int expireIn){
-        this.image = image;
+    public ValidateCode(String code, int expireIn){
         this.code = code;
         this.expireTime = LocalDateTime.now().plusSeconds(expireIn); // 设置过期时间点
     }
 
-    public ImageCode(BufferedImage image, String code, LocalDateTime expireTime){
-        this.image = image;
+    public ValidateCode(String code, LocalDateTime expireTime){
         this.code = code;
         this.expireTime = expireTime;
     }
@@ -39,13 +37,6 @@ public class ImageCode {
         return LocalDateTime.now().isAfter(expireTime);
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public void setImage(BufferedImage image) {
-        this.image = image;
-    }
 
     public String getCode() {
         return code;

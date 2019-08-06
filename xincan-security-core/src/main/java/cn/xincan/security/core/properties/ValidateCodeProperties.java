@@ -1,5 +1,8 @@
 package cn.xincan.security.core.properties;
 
+import cn.xincan.security.core.properties.image.ImageCodeProperties;
+import cn.xincan.security.core.properties.sms.SmsCodeProperties;
+
 /**
  * @description: 验证码配置类
  * @className: ValidateCodeProperties
@@ -9,8 +12,11 @@ package cn.xincan.security.core.properties;
  */
 public class ValidateCodeProperties {
 
-    // 注入配置验证码类
+    //图片验证码配置类
     private ImageCodeProperties image = new ImageCodeProperties();
+
+    // 短信验证码配置类
+    private SmsCodeProperties sms = new SmsCodeProperties();
 
     public ImageCodeProperties getImage() {
         return image;
@@ -19,4 +25,13 @@ public class ValidateCodeProperties {
     public void setImage(ImageCodeProperties image) {
         this.image = image;
     }
+
+    public SmsCodeProperties getSms() {
+        return sms;
+    }
+
+    public void setSms(SmsCodeProperties sms) {
+        this.sms = sms;
+    }
+
 }

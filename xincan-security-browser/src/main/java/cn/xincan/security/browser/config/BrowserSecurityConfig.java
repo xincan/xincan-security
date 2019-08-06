@@ -158,7 +158,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                     "/error",
                     "/authentication/require",
                     this.securityProperties.getBrowser().getLoginPage(),
-                    "/code/image"
+                    "/code/*"
             ).permitAll()
             .anyRequest()
             .authenticated()// 任何请求都需要认证

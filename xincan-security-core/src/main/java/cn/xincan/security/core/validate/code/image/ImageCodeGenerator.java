@@ -1,8 +1,8 @@
-package cn.xincan.security.core.validate.code;
+package cn.xincan.security.core.validate.code.image;
 
 import cn.xincan.security.core.properties.SecurityProperties;
+import cn.xincan.security.core.validate.code.ValidateCodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
@@ -33,7 +33,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
      * @author: Xincan Jiang
      * @date: 2019-08-05 19:15:08
      * @param: [request: 请求]
-     * @return: cn.xincan.security.core.validate.code.ImageCode
+     * @return: cn.xincan.security.core.validate.code.image.ImageCode
      * @exception:
      */
     @Override
