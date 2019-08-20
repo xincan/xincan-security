@@ -68,11 +68,15 @@ xincan:
     browser:
       loginPage: /demo-login.html #采用自己定义的登录页面，如果不配置则默认browser-login.html
       rememberMeSeconds: 60 # 默认一周时间(单位是秒)
-#      loginType: REDIRECT # 返回方式重定向到界面还是JSON据（值类型：REDIRECT， JSON两种，默认JSON）
+      loginType: JSON # 返回方式重定向到界面还是JSON据（值类型：REDIRECT， JSON两种，默认JSON）
     code:
-      image:
+      sms:
         expireIn: 60 # 超时（单位秒,默认60秒）
         length: 6     # 验证码长度设定（默认4位数字）
+        url: /user # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
+      image:
+        expireIn: 60 # 超时（单位秒,默认60秒）
+        length: 4     # 验证码长度设定（默认4位数字）
         height: 30  # 定义图形验证码的高度（默认24px）
-        width: 100   # 定义图形验证码的宽度(默认60px)
+        width: 60   # 定义图形验证码的宽度(默认60px)
         url: /user # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
