@@ -71,12 +71,12 @@ xincan:
       loginType: JSON # 返回方式重定向到界面还是JSON据（值类型：REDIRECT， JSON两种，默认JSON）
     code:
       sms:
-        expireIn: 60 # 超时（单位秒,默认60秒）
-        length: 6     # 验证码长度设定（默认4位数字）
-        url: /user # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
+        expireIn: 60  # 短信验证码超时设置（单位秒,默认60秒）
+        length: 6     # 短信验证码长度设定（默认4位数字）
+        url: /user    # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
       image:
-        expireIn: 60 # 超时（单位秒,默认60秒）
-        length: 4     # 验证码长度设定（默认4位数字）
-        height: 30  # 定义图形验证码的高度（默认24px）
-        width: 60   # 定义图形验证码的宽度(默认60px)
-        url: /user # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)
+        height: 30    # 图形验证码的高度（默认24px）
+        width: 60     # 图形验证码的宽度(默认60px)
+        expireIn: 60  # 图形验证码超时（单位秒,默认60秒）
+        length: 4     # 图形验证码长度设定（默认4位数字）
+        url: /user    # url：表示哪些访问地址需要携带验证码请求，格式为 /user,/user/* (包括多个路径请求)

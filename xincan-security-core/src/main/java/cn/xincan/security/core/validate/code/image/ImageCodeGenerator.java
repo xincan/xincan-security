@@ -28,8 +28,8 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
     private SecurityProperties securityProperties;
 
     /**
-     * @description: 图形校验码生成器函数
-     * @method: gencrate
+     * @description: 图片校验码生成器函数
+     * @method: generate
      * @author: Xincan Jiang
      * @date: 2019-08-05 19:15:08
      * @param: [request: 请求]
@@ -37,8 +37,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
      * @exception:
      */
     @Override
-    public ImageCode generator(ServletWebRequest request) {
-
+    public ImageCode generate(ServletWebRequest request) {
         // 获取请求中得图形验证码得宽高，如果没有走默认配置
         int width = ServletRequestUtils.getIntParameter(request.getRequest(), "width", this.securityProperties.getCode().getImage().getWidth());
         int height = ServletRequestUtils.getIntParameter(request.getRequest(), "height", this.securityProperties.getCode().getImage().getHeight());
@@ -56,7 +55,6 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
             int yl = random.nextInt(12);
             g.drawLine(x, y, x + xl, y + yl);
         }
-
         String sRand = "";
         // this.securityProperties.getCode().getImage().getLength()获取配置中图形验证码得默认长度
         for (int i = 0; i < this.securityProperties.getCode().getImage().getLength(); i++) {
@@ -65,18 +63,18 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
             g.setColor(new Color(20 + random.nextInt(110), 20 + random.nextInt(110), 20 + random.nextInt(110)));
             g.drawString(rand, 13 * i + 6, 16);
         }
-
         g.dispose();
         // this.securityProperties.getCode().getImage().getExpireIn() 获取配置中图形验证码的默认过期时间
         return new ImageCode(image, sRand, this.securityProperties.getCode().getImage().getExpireIn());
     }
 
     /**
-     * 生成随机背景条纹
-     *
-     * @param fc
-     * @param bc
-     * @return
+     * @description: 生成随机背景条纹
+     * @method: getRandColor
+     * @author: Xincan Jiang
+     * @date: 2019-08-21 18:24:56
+     * @param: [fc, bc]
+     * @return: java.awt.Color
      */
     private Color getRandColor(int fc, int bc) {
         Random random = new Random();
@@ -90,11 +88,6 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
         int g = fc + random.nextInt(bc - fc);
         int b = fc + random.nextInt(bc - fc);
         return new Color(r, g, b);
-    }
-
-
-    public SecurityProperties getSecurityProperties() {
-        return securityProperties;
     }
 
     public void setSecurityProperties(SecurityProperties securityProperties) {

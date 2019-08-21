@@ -39,16 +39,16 @@ public class ValidateCodeConfig {
      * @return: cn.xincan.security.core.validate.code.ValidateCodeGenerator
      */
     @Bean
-    @ConditionalOnMissingBean(name = "imageCodeGenerator")
-    public ValidateCodeGenerator imageCodeGenerator() {
+    @ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
+    public ValidateCodeGenerator imageValidateCodeGenerator() {
         ImageCodeGenerator imageCodeGenerator = new ImageCodeGenerator();
         imageCodeGenerator.setSecurityProperties(this.securityProperties);
         return imageCodeGenerator;
     }
 
     @Bean
-    @ConditionalOnMissingBean(name = "smsCodeGenerator")
-    public ValidateCodeGenerator smsCodeGenerator() {
+    @ConditionalOnMissingBean(name = "smsValidateCodeGenerator")
+    public ValidateCodeGenerator smsValidateCodeGenerator() {
         SmsCodeGenerator smsCodeGenerator = new SmsCodeGenerator();
         smsCodeGenerator.setSecurityProperties(this.securityProperties);
         return smsCodeGenerator;

@@ -43,40 +43,48 @@
             -webkit-transition: unset;
             -ms-transition: unset;
         }
+        .xincan-form-group {
+            display: inline-block;
+            text-align: center;
+        }
+        form {
+            float: left;
+        }
     </style>
 </head>
 <body oncontextmenu="return false">
 <div class="page-container">
     <h1>Login</h1>
-    <form action="/authentication/form" method="post">
-        <div>
-            <input type="text" name="username" class="username" value="jxc" placeholder="Username" autocomplete="off"  />
-        </div>
-        <div>
-            <input type="password" name="password" class="password" value="123456" placeholder="Password" oncontextmenu="return false" onpaste="return false" />
-        </div>
-        <div>
-            <input type="text" name="imageCode" style="width: 187px;"/>
-            <!-- /code/image?width=200&height=300&length=6&expireIn=60 自定义图形验证码宽高 -->
-            <img src="/code/image" style="height: 42px; width: 77px; position: relative; top: 16px; border-radius: 3px;" />
-        </div>
-        <div style="float: left">
-            <!-- 记住我功能remember-me固定写法 -->
-            <input type="checkbox" name="remember-me" value="true" /><span style="position: relative; top: -2px;">记住我</span>
-        </div>
-        <button class="uerLoginSubmit" type="submit">Sign in</button>
-    </form>
+    <div class="xincan-form-group">
+        <form class="" action="/authentication/form" method="post">
+            <div>
+                <input type="text" name="username" class="username" value="jxc" placeholder="Username" autocomplete="off"  />
+            </div>
+            <div>
+                <input type="password" name="password" class="password" value="123456" placeholder="Password" oncontextmenu="return false" onpaste="return false" />
+            </div>
+            <div>
+                <input type="text" name="imageCode" style="width: 187px;"/>
+                <!-- /code/image?width=200&height=300&length=6&expireIn=60 自定义图形验证码宽高 -->
+                <img src="/code/image" style="height: 42px; width: 77px; position: relative; top: 16px; border-radius: 3px;" />
+            </div>
+            <div style="float: left">
+                <!-- 记住我功能remember-me固定写法 -->
+                <input type="checkbox" name="remember-me" value="true" /><span style="position: relative; top: -2px;">记住我</span>
+            </div>
+            <button class="uerLoginSubmit" type="submit">Sign in</button>
+        </form>
 
-    <form action="/authentication/mobile" method="post">
-        <div>
-            <input type="text" name="mobile" class="mobile" value="18501377889" placeholder="Mobile" autocomplete="off"  />
-        </div>
-        <div>
-            <input type="text" name="code" class="code" style="width: 190px" /><button class="send" style="width: 80px">发送验证码</button>
-        </div>
-        <button id="mobileLoginSubmit" type="submit">Sign in</button>
-    </form>
-
+        <form action="/authentication/mobile" method="post">
+            <div>
+                <input type="text" name="mobile" class="mobile" value="18501377889" placeholder="Mobile" autocomplete="off"  />
+            </div>
+            <div>
+                <input type="text" name="smsCode" class="code" style="width: 190px" /><button class="send" style="width: 80px">发送验证码</button>
+            </div>
+            <button id="mobileLoginSubmit" type="submit">Sign in</button>
+        </form>
+    </div>
 
     <div class="connect">
         <p>If we can only encounter each other rather than stay with each other,then I wish we had never encountered.</p>

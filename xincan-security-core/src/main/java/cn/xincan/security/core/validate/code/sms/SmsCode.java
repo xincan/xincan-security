@@ -15,8 +15,6 @@ public class SmsCode extends ValidateCode {
 
     private static final long serialVersionUID = -2037196914732043185L;
 
-    public SmsCode(){}
-
     public SmsCode(String code, int expireIn){
         super(code, expireIn);
     }

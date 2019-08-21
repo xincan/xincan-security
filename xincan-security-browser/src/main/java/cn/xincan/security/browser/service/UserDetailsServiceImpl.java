@@ -49,7 +49,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         log.info("登录用户：" + username);
-        User user = this.userMapper.findByUsername(username);
+        User user = this.userMapper.findByUsernameOrMobile(username, username);
         JSONObject json = (JSONObject) JSONObject.toJSON(user);
         System.out.println(json);
         return user;

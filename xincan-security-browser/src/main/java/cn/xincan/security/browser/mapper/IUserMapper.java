@@ -23,6 +23,6 @@ public interface IUserMapper extends JpaRepository<User, Long> {
      * @param: [username: 用户登录名称]
      * @return: cn.xincan.security.browser.entity.User
      */
-    User findByUsername(String username);
+    User findByUsernameOrMobile(String username, String mobile);
 
 }

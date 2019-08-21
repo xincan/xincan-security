@@ -32,7 +32,7 @@ public class SmsCodeGenerator implements ValidateCodeGenerator {
 
     /**
      * @description: 图形校验码生成器函数
-     * @method: gencrate
+     * @method: generate
      * @author: Xincan Jiang
      * @date: 2019-08-05 19:15:08
      * @param: [request: 请求]
@@ -40,14 +40,9 @@ public class SmsCodeGenerator implements ValidateCodeGenerator {
      * @exception:
      */
     @Override
-    public SmsCode generator(ServletWebRequest request) {
+    public SmsCode generate(ServletWebRequest request) {
         String code = RandomStringUtils.randomNumeric(this.securityProperties.getCode().getSms().getLength());
         return new SmsCode(code, this.securityProperties.getCode().getSms().getExpireIn());
-
-    }
-
-    public SecurityProperties getSecurityProperties() {
-        return securityProperties;
     }
 
     public void setSecurityProperties(SecurityProperties securityProperties) {

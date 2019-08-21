@@ -1,5 +1,6 @@
 package cn.xincan.security.browser.controller;
 
+import cn.xincan.security.core.properties.SecurityConstants;
 import cn.xincan.security.core.support.ResultCode;
 import cn.xincan.security.core.support.ResultObject;
 import cn.xincan.security.core.support.ResultResponse;
@@ -65,7 +66,7 @@ public class BrowserSecurityController {
      * @return: cn.xincan.security.core.support.ResultObject 返回结果对象
      * @exception: IOException
      */
-    @GetMapping("/authentication/require")
+    @GetMapping(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public ResultObject requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // 获取缓存中访问的路径信息

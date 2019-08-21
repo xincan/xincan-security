@@ -9,6 +9,13 @@ package cn.xincan.security.core.validate.code.sms;
  */
 public interface SmsCodeSenderService {
 
+    /**
+     * @description: 发送短信
+     * @method: send
+     * @author: Xincan Jiang
+     * @date: 2019-08-21 18:13:42
+     * @param: [mobile, code]
+     */
     void send(String mobile, String code);
 
 }

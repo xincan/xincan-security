@@ -19,6 +19,6 @@ public interface ValidateCodeGenerator {
      * @author: Xincan Jiang
      * @date: 2019-08-05 19:38:51
      */
-    ValidateCode generator(ServletWebRequest request);
+    ValidateCode generate(ServletWebRequest request);
 
 }

@@ -9,7 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author: Xincan Jiang
  * @version: 1.0
  */
-
 @ConfigurationProperties( prefix = "xincan.security")
 public class SecurityProperties {
 
