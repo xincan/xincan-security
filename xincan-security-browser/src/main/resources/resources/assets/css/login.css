@@ -24,15 +24,15 @@
 
 .cont_login {
     position: relative;
-    width: 640px;
+    width: 960px;
     left: 50%;
-    margin-left: -320px
+    margin-left: -480px
 }
 
 .cont_back_info {
     position: relative;
     float: left;
-    width: 640px;
+    width: 960px;
     height: 280px;
     overflow: hidden;
     background-color: #fff;
@@ -67,7 +67,7 @@
     transition: all .5s
 }
 
-.cont_forms_active_sign_up {
+.cont_forms_active_login_mobile {
     box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, .5);
     height: 420px;
     top: 20px;
@@ -79,9 +79,21 @@
     transition: all .5s
 }
 
+.cont_forms_active_sign_up {
+    box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, .5);
+    height: 420px;
+    top: 20px;
+    left: 640px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s
+}
+
 .cont_img_back_grey {
     position: absolute;
-    width: 950px;
+    width: 1280px;
     top: -80px;
     left: -116px
 }
@@ -100,7 +112,7 @@
 
 .cont_img_back_ {
     position: absolute;
-    width: 950px;
+    width: 1280px;
     top: -80px;
     left: -116px
 }
@@ -124,6 +136,15 @@
     transition: all .5s
 }
 
+.cont_forms_active_login_mobile > .cont_img_back_ {
+    top: 0;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s
+}
+
 .cont_forms_active_sign_up > .cont_img_back_ {
     top: 0;
     left: -435px;
@@ -136,7 +157,7 @@
 
 .cont_info_log_sign_up {
     position: absolute;
-    width: 640px;
+    width: 960px;
     height: 280px;
     top: 100px;
     z-index: 1
@@ -145,7 +166,7 @@
 .col_md_login {
     position: relative;
     float: left;
-    width: 50%
+    width: 33.333333333%
 }
 
 .col_md_login > h2 {
@@ -173,10 +194,16 @@
     cursor: pointer
 }
 
+.col_md_login_mobile {
+    position: relative;
+    float: left;
+    width: 33.333333333%
+}
+
 .col_md_sign_up {
     position: relative;
     float: left;
-    width: 50%
+    width: 33.333333333%
 }
 
 .cont_ba_opcitiy > h2 {
@@ -299,7 +326,23 @@
     transition: all .5s
 }
 
+.cont_form_login_mobile {
+    position: absolute;
+    opacity: 0;
+    display: none;
+    width: 320px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s
+}
+
 .cont_forms_active_login {
+    z-index: 2
+}
+
+.cont_forms_active_login_mobile {
     z-index: 2
 }
 
@@ -351,7 +394,23 @@
     color: #757575
 }
 
-.cont_form_login > a, .cont_form_sign_up > a {
+.cont_form_login_mobile > input {
+    padding: 15px 5px;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 260px;
+    border: 0;
+    text-align: left;
+    color: #757575
+}
+
+.cont_form_login_mobile > h2 {
+    margin-top: 110px;
+    font-weight: 400;
+    color: #757575
+}
+
+.cont_form_login > a, .cont_form_login_mobile > a, .cont_form_sign_up > a {
     color: #757575;
     position: relative;
     float: left;
